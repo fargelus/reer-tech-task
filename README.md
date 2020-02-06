@@ -1,2 +1,2 @@
-# Rails-template
-Scaffold template for Ruby on Rails apps.
+# Url-shortener
+This is simple rails app which implements short links creation.
