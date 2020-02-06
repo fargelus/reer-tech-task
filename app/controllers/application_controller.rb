@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  rescue_from ActionController::RoutingError, with: :redirect_shorten_url
-
   def from_shorten_url
     shorten = params[:shorten]
     short_url = ShortUrl.find_by(shorten: shorten)

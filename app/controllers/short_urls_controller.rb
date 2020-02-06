@@ -7,11 +7,11 @@ class ShortUrlsController < ApplicationController
 
   def create
     url = params[:short_url][:url]
-    saved_url = ShortUrl.find_by(url: url)
-    if saved_url
+    existing_url = ShortUrl.find_by(url: url)
+    if existing_url
       redirect_to short_url_path(saved_url.id)
     else
-      save_new_url(url)
+      create_from_url(url)
     end
   end
 
@@ -30,7 +30,7 @@ class ShortUrlsController < ApplicationController
     @short_url = ShortUrl.new
   end
 
-  def save_new_url(url)
+  def create_from_url(url)
     short_url = ShortenUrlService.call(url)
     @short_url = ShortUrl.new(url: url, shorten: short_url)
     if @short_url.save
