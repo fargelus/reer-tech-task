@@ -1,0 +1,42 @@
+# frozen_string_literal: true
+
+class ShortUrlsController < ApplicationController
+  before_action :get_empty_short_url, only: %i[new show]
+
+  def new; end
+
+  def create
+    url = params[:short_url][:url]
+    saved_url = ShortUrl.find_by(url: url)
+    if saved_url
+      redirect_to short_url_path(saved_url.id)
+    else
+      save_new_url(url)
+    end
+  end
+
+  def show
+    last_url = ShortUrl.find_by(id: params[:id])
+    if last_url
+      @shorten = last_url.shorten
+    else
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def get_empty_short_url
+    @short_url = ShortUrl.new
+  end
+
+  def save_new_url(url)
+    short_url = ShortenUrlService.call(url)
+    @short_url = ShortUrl.new(url: url, shorten: short_url)
+    if @short_url.save
+      redirect_to short_url_path(@short_url.id)
+    else
+      render 'new'
+    end
+  end
+end
