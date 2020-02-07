@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
-require 'uri'
-
 class ShortenUrlService < Callable
-  SHIFT_VAL = 5
-
   def initialize(url)
-    @pathname = URI.parse(url).path
+    @full_url = url
   end
 
   def call
-    ascii = @pathname.chars.map(&:ord)
-    ascii.map { |c| c + SHIFT_VAL }
-         .map(&:chr).join
+    @full_url.chars
+             .map { |_| random_chr }
+             .join
+  end
+
+  private
+
+  def random_chr
+    upcased = rand(65..90).chr
+    lowcased = rand(97..122).chr
+    rand(2).zero? ? upcased : lowcased
   end
 end

@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import 'font-awesome';
 
 html, body {
   min-height: 100%;
@@ -22,6 +23,15 @@ html, body {
   }
 }
 
-.form-wrapper {
+.top-element-wrapper {
   padding: 15px 20px 0;
+}
+
+.short-url {
+  border: 1px solid gray;
+  padding: 2px 5px;
+}
+
+.fa-icon {
+  font-size: 18px;
 }

@@ -1,6 +1,7 @@
-<div class="form-group form-inline form-wrapper">
-  <%= label_tag(:q, "Your short url is:", class: 'mr-2 font-weight-bold') %>
-  <%= text_field_tag(:q, nil, readonly: true, class: 'form-control', value: short_url(@shorten)) %>
+<div class="top-element-wrapper">
+  <span class="mr-2 font-weight-bold">Your short url is:</span>
+  <span class="short-url"><%=short_url(@shorten)%></span>
+  <i class="fa ml-1 fa-icon fa-copy"></i>
 </div>
 <hr>
 <%= render 'form' %>

@@ -9,16 +9,16 @@ class ShortUrlsController < ApplicationController
     url = params[:short_url][:url]
     existing_url = ShortUrl.find_by(url: url)
     if existing_url
-      redirect_to short_url_path(saved_url.id)
+      redirect_to short_url_path(existing_url.id)
     else
       create_from_url(url)
     end
   end
 
   def show
-    last_url = ShortUrl.find_by(id: params[:id])
-    if last_url
-      @shorten = last_url.shorten
+    exist_url = ShortUrl.find_by(id: params[:id])
+    if exist_url
+      @shorten = exist_url.shorten
     else
       redirect_to root_path
     end
