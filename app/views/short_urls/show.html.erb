@@ -1,7 +1,20 @@
 <div class="top-element-wrapper">
   <span class="mr-2 font-weight-bold">Your short url is:</span>
-  <span class="short-url"><%=short_url(@shorten)%></span>
-  <i class="fa ml-1 fa-icon fa-copy"></i>
+  <% shorten_url = short_url(@saved_url.shorten) %>
+  <span class="short-url"><%=shorten_url%></span>
+  <div class="js-copy-url d-inline-block" data-toggle="tooltip"
+       data-placement="bottom"
+       data-revert-title="Copied"
+       data-copy-url="<%=shorten_url%>"
+       title="Copy url">
+    <i class="fa ml-1 fa-icon fa-copy"></i>
+  </div>
+
+  <div class="mt-1">
+    <small>
+      This url will lead to: <%=@saved_url.url%>
+    </small>
+  </div>
 </div>
 <hr>
 <%= render 'form' %>
