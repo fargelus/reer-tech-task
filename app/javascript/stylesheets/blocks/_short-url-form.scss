@@ -1,0 +1,9 @@
+.short-url-form-wrapper {
+  @include center;
+
+  .url-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

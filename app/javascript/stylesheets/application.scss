@@ -1,38 +1,7 @@
 @import 'bootstrap';
 @import '@fortawesome/fontawesome-free';
 @import 'animate.css';
-
-html, body {
-  min-height: 100%;
-  height: 100%;
-}
-
-.short-url-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  .form-group-invalid {
-    position: relative;
-
-    .invalid-feedback {
-      position: absolute;
-      bottom: -20px;
-      left: 0;
-    }
-  }
-}
-
-.top-element-wrapper {
-  padding: 15px 20px 0;
-}
-
-.short-url {
-  border: 1px solid gray;
-  padding: 2px 5px;
-}
-
-.fa-icon {
-  font-size: 18px;
-}
+@import 'other/mixins';
+@import 'layouts/basic';
+@import 'blocks/short-url-form';
+@import 'blocks/other';

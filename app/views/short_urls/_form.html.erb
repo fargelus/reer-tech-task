@@ -1,4 +1,12 @@
-<%= simple_form_for @short_url, html: { class: 'form-inline short-url-form' } do |f| %>
-  <%= f.input :url, label: false %>
-  <%= f.button :submit, class: 'btn-primary ml-2' %>
-<% end %>
+<div class="short-url-form-wrapper">
+  <% if defined? url_label %>
+    <small class="d-inline-block mb-1">
+      <%= funny_enter_url_phrase %>
+    </small>
+  <% end %>
+
+  <%= simple_form_for @short_url, html: { class: 'form-inline url-form' } do |f| %>
+    <%= f.input :url, label: false %>
+    <%= f.button :submit, class: 'btn-primary ml-2' %>
+  <% end %>
+</div>
