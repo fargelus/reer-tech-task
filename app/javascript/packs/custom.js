@@ -1,6 +1,8 @@
 $(() => {
   $('[data-toggle="tooltip"]').tooltip();
+});
 
+$(() => {
   function copyUrl() {
     let timerId;
     const TIMER_VAL = 2000;
@@ -48,4 +50,10 @@ $(() => {
   }
 
   copyUrl();
+});
+
+$(() => {
+  $('#receive-qr').on('ajax:success', ev => {
+    console.log(ev);
+  });
 });

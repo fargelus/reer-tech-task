@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ShortUrlsController < ApplicationController
+  include ApplicationHelper
+
   before_action :get_empty_short_url, only: %i[new show]
 
   def new; end
@@ -18,6 +20,7 @@ class ShortUrlsController < ApplicationController
   def show
     @saved_url = ShortUrl.find_by(id: params[:id])
     redirect_to root_path unless @saved_url
+    @service_url = service_url(@saved_url.shorten)
   end
 
   private
