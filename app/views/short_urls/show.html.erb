@@ -1,6 +1,6 @@
 <div class="top-element-wrapper">
   <span class="mr-2 font-weight-bold">Your short url is:</span>
-  <span class="service-url"><%=@service_url%></span>
+  <span class="disabled-input"><%=@service_url%></span>
   <div class="js-copy-url d-inline-block" data-toggle="tooltip"
        data-placement="bottom"
        data-revert-title="Copied"
@@ -21,7 +21,7 @@
         form: { id: 'receive-qr' },
         class: 'btn btn-secondary',
         remote: true %>
-    <div id="qr"></div>
+    <div id="qr-image-wrapper"></div>
   </div>
 </div>
 <hr>

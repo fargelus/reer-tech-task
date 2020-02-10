@@ -53,7 +53,12 @@ $(() => {
 });
 
 $(() => {
+  const $imageHolder = $('#qr-image-wrapper');
+  $imageHolder.hide();
   $('#receive-qr').on('ajax:success', ev => {
-    console.log(ev);
+    const { detail } = ev;    
+    $imageHolder
+      .append(`<img src="${detail[0]}">`)
+      .fadeIn();
   });
 });

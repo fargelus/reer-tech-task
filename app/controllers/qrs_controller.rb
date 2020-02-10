@@ -2,6 +2,8 @@
 
 class QrsController < ApplicationController
   def create
-    send_data QrUrlCreator.call(params[:url])
+    qr_png = QrUrlAsPngCreator.call(params[:url])
+    encoded = Base64.encode64(qr_png)
+    send_data "data:image/png;base64,#{encoded}"
   end
 end

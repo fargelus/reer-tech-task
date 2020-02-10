@@ -2,7 +2,7 @@
 
 require 'rqrcode'
 
-class QrUrlCreator < Callable
+class QrUrlAsPngCreator < Callable
   def initialize(url)
     @url = url
     @png_options = {
